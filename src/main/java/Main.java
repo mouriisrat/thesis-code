@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
 
@@ -37,7 +38,9 @@ public class Main {
         PaillierContext signedContext = pub.createSignedContext();
         FilePolicyGenerator filePolicyGenerator = new FilePolicyGenerator();
         StopWatch stopWatch = new StopWatch();
-        Tree tree= new Tree();
+        Tree tree = new Tree();
+        Scanner user_input = new Scanner(System.in);
+        User user = new User(tree);
 
        /* stopWatch.start();
         EncryptedNumber[] filePolicyEncrypted = filePolicyGenerator.filePolicyEncrypt("E:\\Thesis Data\\testt\\rfc8628.txt", signedContext);
@@ -51,17 +54,17 @@ public class Main {
         Path dir;
         dir = Paths.get("E:\\Thesis Data\\test\\");
         EncryptedNumber[] data;
-        String id;
+        String id, searchQuery;
 
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.txt")) {
             for (Path entry : stream) {
                 stopWatch.start();
-                data= filePolicyGenerator.filePolicyEncrypt("E:\\Thesis Data\\test\\" + entry.getFileName(), signedContext);
-                id= entry.getFileName().toString();
+                data = filePolicyGenerator.filePolicyEncrypt("E:\\Thesis Data\\test\\" + entry.getFileName(), signedContext);
+                id = entry.getFileName().toString();
                 tree.insert(data, id);
                 stopWatch.stop();
                 System.out.print("Root :");
-                for (int i = 0; i <tree.root.data.length; i++) {
+                for (int i = 0; i < tree.root.data.length; i++) {
                     System.out.print(" " + priv.decrypt(tree.root.data[i]).decodeBigInteger());
                 }
                 System.out.println("\nTime to encrypt a file " + stopWatch.getLastTaskInfo().getTimeMillis());
@@ -69,6 +72,15 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        System.out.println("Enter a keyword");
+        while (user_input.hasNext()) {
+            searchQuery = user_input.next();
+            if (searchQuery.equals("quit")) {
+                break;
+            }
+            System.out.println("The file name is = " + user.searchFile(searchQuery));
+            System.out.println("Enter a keyword");
         }
     }
 }

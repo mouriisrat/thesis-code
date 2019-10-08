@@ -45,7 +45,7 @@ public class Tree {
             Node newRoot = new Node();
             newRoot.left = root;
             newRoot.right = listOfNode.get(0);
-            newRoot.data=root.data;
+            newRoot.data = root.data;
             root.parent = newRoot;
             listOfNode.get(0).parent = newRoot;
             root = newRoot;
@@ -64,17 +64,37 @@ public class Tree {
             parent = parent.parent;
 
         }
-        next=next.next;
+        next = next.next;
 
-        System.out.println("current count is "+ count);
+        //System.out.println("current count is " + count);
 
     }
 
-    private EncryptedNumber[] add(EncryptedNumber[] a, EncryptedNumber[] b) {
+    public EncryptedNumber[] add(EncryptedNumber[] a, EncryptedNumber[] b) {
         EncryptedNumber[] r = new EncryptedNumber[a.length];
         for (int i = 0; i < a.length; i++) {
             r[i] = a[i].add(b[i]);
         }
         return r;
     }
+
+    public EncryptedNumber[] subtract(EncryptedNumber[] a, EncryptedNumber[] b) {
+        if (b == null)
+            return a;
+        EncryptedNumber[] r = new EncryptedNumber[a.length];
+        for (int i = 0; i < a.length; i++) {
+            r[i] = a[i].subtract(b[i]);
+        }
+        return r;
+    }
+
+    public EncryptedNumber[] currentNode(Node root) {
+
+        if (root.left != null && root.right != null) {
+            EncryptedNumber[] subtractedValue = subtract(root.left.data, root.right.data);
+            return subtractedValue;
+        } else
+            return null;
+    }
+
 }

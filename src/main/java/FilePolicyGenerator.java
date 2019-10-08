@@ -33,7 +33,7 @@ public class FilePolicyGenerator {
             int maxFrequency = 1;
         };
         Files.lines(Path.of(fileName)).forEach(line -> {
-            line=line.toLowerCase();
+            line = line.toLowerCase();
             for (String word : line.split("[\\p{Punct}\\s]+")) {
                 if (dictionary.containsKey(word)) {
                     frequency[dictionary.get(word)]++;
@@ -43,11 +43,11 @@ public class FilePolicyGenerator {
         });
 
         EncryptedNumber[] cipherText = new EncryptedNumber[dictionary.size()];
-        System.out.print(" plaintext" );
+        System.out.print(" plaintext");
         for (int i = 0; i < dictionary.size(); i++) {
             long temp = Math.round(((double) alpha * frequency[i]) / ref.maxFrequency);
             BigInteger plainText = M.pow((int) temp);
-            System.out.print(" "+plainText);
+            System.out.print(" " + plainText);
             cipherText[i] = context.encrypt(plainText);
         }
         System.out.println();
