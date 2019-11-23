@@ -14,19 +14,19 @@ import java.util.List;
 
 public class FilePolicyGenerator {
     static int alpha = 50;
-    static BigInteger M = BigInteger.valueOf(501);
+    static BigInteger M = BigInteger.valueOf(5001);
     List<String> words;
     HashMap<String, Integer> dictionary = new HashMap<>();
     HashMap<String, Integer> cnt = new HashMap<>();
 
 
-    public FilePolicyGenerator() throws IOException {
+    public FilePolicyGenerator(String dictionaryFile) throws IOException {
 
-        words = Arrays.asList(IOUtils.resourceToString("dictionary.txt", Charset.defaultCharset(), Main.class.getClassLoader()).split("\\s+"));
+        words = Arrays.asList(IOUtils.resourceToString(dictionaryFile, Charset.defaultCharset(), Main.class.getClassLoader()).split("\\s+"));
 
         for (int i = 0; i < words.size(); i++) {
+            System.out.println(words.get(i));
             dictionary.put(words.get(i), i);
-
         }
     }
 
@@ -50,7 +50,6 @@ public class FilePolicyGenerator {
 
             }
         });
-
 
         EncryptedNumber[] cipherText = new EncryptedNumber[dictionary.size()];
         //System.out.print(" plaintext");

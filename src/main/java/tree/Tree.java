@@ -15,6 +15,29 @@ public class Tree {
         count = 1;
     }
 
+    public int binaryTree_count_recursive(Node root) {
+        int numberOfNode = 1;
+
+        if (root.left != null && root.left.data != null) {
+            numberOfNode += binaryTree_count_recursive(root.left);
+        }
+        if (root.right != null && root.right.data != null) {
+            numberOfNode += binaryTree_count_recursive(root.right);
+        }
+
+        return numberOfNode;
+    }
+
+    public int countNode() {
+        int numberOfNode = 0;
+
+        if (root.data != null) {
+            numberOfNode = binaryTree_count_recursive(root);
+        }
+        return numberOfNode;
+    }
+
+
     public void insert(EncryptedNumber[] data, String id) {
 
         if (next == null) {

@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+@SuppressWarnings("ConstantConditions")
 public class User {
     private final Tree tree;
     PaillierPrivateKey priv;
@@ -27,7 +28,7 @@ public class User {
     BigInteger M = FilePolicyGenerator.M;
 
 
-    public User(Tree tree, String docPath) throws IOException {
+    public User(Tree tree, String docPath, String dictionaryFile) throws IOException {
         this.tree = tree;
         Path dir = Paths.get(docPath);
 
@@ -38,7 +39,7 @@ public class User {
         final Map privateKey = mapper.readValue(privateKeyString, Map.class);
         priv = SerialisationUtil.unserialise_private(privateKey);
 
-        words = Arrays.asList(IOUtils.resourceToString("dictionary.txt", Charset.defaultCharset(), Main.class.getClassLoader()).split("\\s+"));
+        words = Arrays.asList(IOUtils.resourceToString(dictionaryFile, Charset.defaultCharset(), Main.class.getClassLoader()).split("\\s+"));
         for (int i = 0; i < words.size(); i++) {
             dictionary.put(words.get(i), i);
             idf.put(words.get(i), 0.0);
@@ -124,6 +125,48 @@ public class User {
 
         return root.id;
     }
+
+
+
+    public PriorityQueue<Map.Entry<Double, String>> searchRankedK(String searchQuery, int k) {
+        String[] splitStr = searchQuery.toLowerCase().split("\\s+");
+        List<Integer> indexes = new ArrayList<>();
+        for (String word : splitStr) {
+            int i = dictionary.getOrDefault(word, -1);
+            if (i == -1) continue;
+            indexes.add(i);
+        }
+        PriorityQueue<Map.Entry<Double, String>> docs =  new PriorityQueue<>(Comparator.comparingDouble(Map.Entry::getKey));;
+        searchRankedK(tree.root, indexes, k, docs);
+        return docs;
+    }
+
+    private void searchRankedK(Node root, List<Integer> indexes, int k, PriorityQueue<Map.Entry<Double, String>> docs) {
+        if( root.left == null && root.right == null ) {
+            double sum = getSum(root, indexes);
+            if(docs.size() < k || docs.peek().getKey() < sum) {
+                docs.add(Map.entry(sum, root.id));
+                if(docs.size() > k) docs.poll();
+            }
+        }
+        else {
+            if( docs.size() < k || docs.peek().getKey() < getSum(root, indexes) ) {
+                if(root.left != null && root.left.data != null) searchRankedK(root.left, indexes, k, docs);
+                if(root.right != null && root.right.data != null) searchRankedK(root.right, indexes, k, docs);
+            }
+        }
+    }
+
+    private double getSum(Node root, List<Integer> indexes) {
+        return indexes
+                    .stream()
+                    .mapToDouble(i -> {
+                        BigInteger decrypted = priv.decrypt(root.data[i]).decodeBigInteger();
+                        return decodeToTF(decrypted) * idf.get(words.get(i));
+                    })
+                    .sum();
+    }
+
 
     private double decodeToTF(BigInteger b) {
         int cnt = 0;

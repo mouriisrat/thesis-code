@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f769293b-9d77-4599-9e6e-ad7572796f58" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Idf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tree/Idf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/allRFCword.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionary1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionary100.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionary1000.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionary400.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionary700.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionaryRFC.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dictionary_dup.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/small.dictionary.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FilePolicyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilePolicyGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/KeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KeyGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tree/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dictionary.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/privateKey.priv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/privateKey.priv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/publicKey.pub" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/publicKey.pub" afterDir="false" />
@@ -77,6 +67,12 @@
                 <item name="DocumentProducer" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -138,7 +134,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.ThesisCode [build]">
     <configuration name="KeyGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="KeyGenerator" />
       <module name="DocumentProducer.main" />
@@ -172,14 +168,35 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ThesisCode [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.KeyGenerator" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.ThesisCode [build]" />
+      <item itemvalue="Gradle.ThesisCode [jar]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ThesisCode [build]" />
+        <item itemvalue="Gradle.ThesisCode [jar]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.KeyGenerator" />
       </list>
@@ -210,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570544218571</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added multi keyword search using tf.idf">
+      <created>1573388639235</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573388639235</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,17 +255,7 @@
     <MESSAGE value="Added Tree implementation" />
     <MESSAGE value="Merge branch 'master' of https://github.com/mouriisrat/thesis-code&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/FilePolicyGenerator.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/tree/Node.java&#10;#&#9;src/main/java/tree/Tree.java&#10;#&#9;src/main/resources/dictionary.txt" />
     <MESSAGE value="- Added user search&#10;- Merge branch 'master' of https://github.com/mouriisrat/thesis-code&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/FilePolicyGenerator.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/tree/Node.java&#10;#&#9;src/main/java/tree/Tree.java&#10;#&#9;src/main/resources/dictionary.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added user search&#10;- Merge branch 'master' of https://github.com/mouriisrat/thesis-code&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/FilePolicyGenerator.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/tree/Node.java&#10;#&#9;src/main/java/tree/Tree.java&#10;#&#9;src/main/resources/dictionary.txt" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/User.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added multi keyword search using tf.idf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added multi keyword search using tf.idf" />
   </component>
 </project>
