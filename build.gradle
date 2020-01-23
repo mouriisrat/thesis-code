@@ -23,6 +23,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.n1analytics/javallier
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     compile group: 'com.n1analytics', name: 'javallier_2.10', version: '0.6.0'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

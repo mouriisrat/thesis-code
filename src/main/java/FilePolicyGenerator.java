@@ -11,10 +11,12 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class FilePolicyGenerator {
-    static int alpha = 50;
-    static BigInteger M = BigInteger.valueOf(5001);
+    Scanner user_input = new Scanner(System.in);
+    static int alpha;
+    static BigInteger M;
     List<String> words;
     HashMap<String, Integer> dictionary = new HashMap<>();
     HashMap<String, Integer> cnt = new HashMap<>();
@@ -23,6 +25,11 @@ public class FilePolicyGenerator {
     public FilePolicyGenerator(String dictionaryFile) throws IOException {
 
         words = Arrays.asList(IOUtils.resourceToString(dictionaryFile, Charset.defaultCharset(), Main.class.getClassLoader()).split("\\s+"));
+        System.out.println("Enter value of M");
+        int m = user_input.nextInt();
+        M = BigInteger.valueOf(m);
+        System.out.println("Enter value of alpha");
+        alpha = user_input.nextInt();
 
         for (int i = 0; i < words.size(); i++) {
             System.out.println(words.get(i));
@@ -56,7 +63,7 @@ public class FilePolicyGenerator {
         for (int i = 0; i < dictionary.size(); i++) {
             long temp = Math.round(((double) alpha * frequency[i]) / ref.maxFrequency);
             BigInteger plainText = M.pow((int) temp);
-           // System.out.print(" " + plainText);
+            // System.out.print(" " + plainText);
             cipherText[i] = context.encrypt(plainText);
         }
         System.out.println();

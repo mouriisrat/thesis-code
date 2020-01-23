@@ -1,17 +1,16 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.n1analytics.paillier.EncryptedNumber;
 import com.n1analytics.paillier.PaillierPrivateKey;
 import com.n1analytics.paillier.cli.SerialisationUtil;
 import org.apache.commons.io.IOUtils;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.web.client.RestTemplate;
 import tree.Node;
 import tree.Tree;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -28,16 +27,17 @@ public class User {
     BigInteger M = FilePolicyGenerator.M;
 
 
-    public User(Tree tree, String docPath, String dictionaryFile) throws IOException {
+    public User(Tree tree, String docPath, String dictionaryFile, PaillierPrivateKey priv) throws IOException {
         this.tree = tree;
         Path dir = Paths.get(docPath);
 
-        String privateKeyString = IOUtils.resourceToString("privateKey.priv", Charset.defaultCharset(), Main.class.getClassLoader());
+        /*String privateKeyString = IOUtils.resourceToString("privateKey.priv", Charset.defaultCharset(), Main.class.getClassLoader());
         System.out.println(privateKeyString);
 
         final ObjectMapper mapper = new ObjectMapper();
         final Map privateKey = mapper.readValue(privateKeyString, Map.class);
-        priv = SerialisationUtil.unserialise_private(privateKey);
+        this.priv = SerialisationUtil.unserialise_private(privateKey);*/
+        this.priv = priv;
 
         words = Arrays.asList(IOUtils.resourceToString(dictionaryFile, Charset.defaultCharset(), Main.class.getClassLoader()).split("\\s+"));
         for (int i = 0; i < words.size(); i++) {
@@ -45,7 +45,7 @@ public class User {
             idf.put(words.get(i), 0.0);
         }
 
-
+/*
         DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.txt");
         for (Path entry : stream) {
             Set<String> uniqueWord = new HashSet<>();
@@ -54,9 +54,9 @@ public class User {
                 Collections.addAll(uniqueWord, line.split("[\\p{Punct}\\s]+"));
             });
 
-            /*for (int i = 0; i < uniqueWord.size(); i++) {
+            *//*for (int i = 0; i < uniqueWord.size(); i++) {
                 System.out.println(uniqueWord.get(i));
-            }*/
+            }*//*
 
             System.out.println("next file " + entry);
 
@@ -69,9 +69,47 @@ public class User {
 
         for (String e : idf.keySet()) {
             idf.put(e, Math.log10(noFile / idf.get(e)) / Math.log10(2));
-        }
+        }*/
 
     }
+
+    public String searchFileSingle(String searchQuery) throws IOException {
+
+        if (!dictionary.containsKey(searchQuery))
+            return "Word is not in dictionary";
+
+        int index = dictionary.get(searchQuery);
+        Node root = tree.root;
+        while (true) {
+            EncryptedNumber[] currentValue = tree.currentNode(root);
+            if (currentValue == null) {
+                break;
+            }
+         //   networkLoad(currentValue);
+            BigInteger decryptedValue = priv.decrypt(currentValue[index]).decodeBigInteger();
+            if (decryptedValue.signum() >= 0)
+                root = root.left;
+            else
+                root = root.right;
+        }
+        return root.id;
+    }
+
+    RestTemplate restTemplate = new RestTemplateBuilder()
+            .basicAuthentication("mouri", "cloud_thesis")
+            .build();
+    void networkLoad(EncryptedNumber[] node) throws IOException {
+
+        ByteArrayOutputStream data = new ByteArrayOutputStream();
+
+        for (EncryptedNumber encryptedNumber : node) {
+            data.write(SerialisationUtil.serialise_encrypted(encryptedNumber).toString().getBytes());
+        }
+        String response = restTemplate.postForObject("http://ip-172-31-25-11.ap-southeast-1.compute.internal:8080/echo", data.toByteArray(), String.class);
+        System.out.println("Request size is " + response);
+    }
+
+
 
     public String searchFile(String searchQuery) {
 

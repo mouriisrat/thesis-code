@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f769293b-9d77-4599-9e6e-ad7572796f58" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FilePolicyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilePolicyGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KeyGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tree/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dictionary.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/privateKey.priv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/privateKey.priv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/publicKey.pub" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/publicKey.pub" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +106,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="android.sdk.path" value="E:/Java/Android/Sdk" />
-    <property name="last.edited.regexp" value="      &#10;      &#10;      &#10;      &#10;      &#10;      &#10;      " />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last.edited.regexp" value="  " />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -234,8 +231,25 @@
       <option name="project" value="LOCAL" />
       <updated>1573388639235</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="auto generated public key">
+      <created>1574507033585</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574507033585</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -251,11 +265,25 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Tree implementation" />
     <MESSAGE value="Merge branch 'master' of https://github.com/mouriisrat/thesis-code&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/FilePolicyGenerator.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/tree/Node.java&#10;#&#9;src/main/java/tree/Tree.java&#10;#&#9;src/main/resources/dictionary.txt" />
     <MESSAGE value="- Added user search&#10;- Merge branch 'master' of https://github.com/mouriisrat/thesis-code&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/FilePolicyGenerator.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/tree/Node.java&#10;#&#9;src/main/java/tree/Tree.java&#10;#&#9;src/main/resources/dictionary.txt" />
     <MESSAGE value="Added multi keyword search using tf.idf" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added multi keyword search using tf.idf" />
+    <MESSAGE value="auto generated public key" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto generated public key" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.n1analytics/javallier_2.10/0.6.0/3da937106ed7eb1f0229f37e7ce6afb6f9338eb9/javallier_2.10-0.6.0-sources.jar!/com/n1analytics/paillier/cli/SerialisationUtil.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
