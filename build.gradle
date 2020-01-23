@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group 'asia.mouri.mscthesis'
+group 'acm.ccs'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
