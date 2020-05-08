@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static String dictionaryFile = "dictionary.txt";
+    private static String dictionaryFile = "small.dictionary.txt";
 
     public static void main(String[] args) throws IOException {
         if(args.length >= 1) dictionaryFile = args[0];
@@ -36,7 +36,10 @@ public class Main {
 
         Path dir;
         System.out.println("Enter documents path");
-        String docPath = "/home/ec2-user/RFC/";
+//        String docPath = "/home/ec2-user/RFC/";
+        String docPath = "E:\\ThesisData\\test\\";
+//        String docPath = "E:\\Thesis Data\\rfc\\";
+        // String docPath = "E:\\Thesis Data\\rfc\\sizeTest\\";
         dir = Paths.get(docPath);
 
         System.out.println("Enter value of keyBit");
@@ -50,9 +53,6 @@ public class Main {
         Tree tree = new Tree();
         User user = new User(tree, docPath, dictionaryFile, priv);
 
-//        String docPath = "E:\\Thesis Data\\test\\";
-//        String docPath = "E:\\Thesis Data\\rfc\\";
-        // String docPath = "E:\\Thesis Data\\rfc\\sizeTest\\";
         /*stopWatch.start();
         EncryptedNumber[] filePolicyEncrypted = filePolicyGenerator.filePolicyEncrypt("E:\\Thesis Data\\testt\\rfc8628.txt", signedContext);
         stopWatch.stop();
@@ -177,6 +177,16 @@ public class Main {
             System.out.println("Enter a keyword");
         }
        */
+        //ranked keyword search
+        System.out.println("Enter a keyword");
+        while (user_input.hasNext()) {
+            searchQuery = user_input.next();
+            if (searchQuery.equals("quit")) {
+                break;
+            }
+            System.out.println("The file name is = " + user.searchFileRanked(searchQuery, 5));
+            System.out.println("Enter a keyword");
+        }
        /* System.out.println("average time for search search1000 = " + search1000);
         System.out.println("average time for search search2500 = " + search2500);
         System.out.println("average time for search search4000 = " + search4000);

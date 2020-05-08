@@ -25,6 +25,7 @@ public class User {
     int noFile = 0;
     int alpha = FilePolicyGenerator.alpha;
     BigInteger M = FilePolicyGenerator.M;
+    BigInteger maxValue;
 
 
     public User(Tree tree, String docPath, String dictionaryFile, PaillierPrivateKey priv) throws IOException {
@@ -94,6 +95,63 @@ public class User {
         }
         return root.id;
     }
+
+
+    //TODO: This is current rank code
+    public String searchFileRanked(String searchQuery, int k) throws IOException {
+
+        if (!dictionary.containsKey(searchQuery))
+            return "Word is not in dictionary";
+
+        int index = dictionary.get(searchQuery);
+        Node root = tree.root;
+        BigInteger decryptedValueRoot = priv.decrypt(tree.root.data[index]).decodeBigInteger();
+        var stack = new LinkedList<Integer>();
+        while (!decryptedValueRoot.equals(BigInteger.ZERO)) {
+            stack.push(decryptedValueRoot.mod(M).intValue());
+            decryptedValueRoot = decryptedValueRoot.divide(M);
+        }
+
+        int sum = 0;
+        while (sum <= k) {
+            sum = sum + stack.pop();
+        }
+
+//        maxValue = Math.pow(M.intValue(), stack.size());
+        maxValue = M.pow(stack.size());
+        searchFileRanked(tree.root, index, k);
+        while(!q.isEmpty()) {
+            System.out.println(q.poll());
+        }
+        return null;
+    }
+
+    PriorityQueue<Map.Entry<String, BigInteger>> q = new PriorityQueue<>((a, b) -> b.getValue().compareTo(a.getValue()));
+
+    public void searchFileRanked(Node root, int index, int k) {
+
+        if(root.left==null && root.right==null){
+            if(q.size()<=k-1)
+                q.add(Map.entry(root.id, priv.decrypt(root.data[index]).decodeBigInteger()));
+            else if(priv.decrypt(root.data[index]).decodeBigInteger().compareTo(q.peek().getValue())>0){
+                q.poll();
+                q.add(Map.entry(root.id, priv.decrypt(root.data[index]).decodeBigInteger()));
+            }
+            return;
+        }
+
+        EncryptedNumber[] subtractedValue=tree.subtract(root.left.data, root.right.data);
+        BigInteger decryptedRoot = priv.decrypt(root.data[index]).decodeBigInteger();
+        BigInteger decryptedSubtractedValue = priv.decrypt(subtractedValue[index]).decodeBigInteger();
+        BigInteger left = (decryptedRoot.add(decryptedSubtractedValue)).divide(BigInteger.TWO);
+        BigInteger right = (decryptedRoot.subtract(decryptedSubtractedValue)).divide(BigInteger.TWO);
+
+        if(left.compareTo(maxValue) >=0 )
+            searchFileRanked(root.left, index, k);
+        if(right.compareTo(maxValue) >= 0)
+            searchFileRanked(root.right, index, k);
+    }
+
 
     RestTemplate restTemplate = new RestTemplateBuilder()
             .basicAuthentication("mouri", "cloud_thesis")

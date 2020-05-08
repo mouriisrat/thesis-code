@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f769293b-9d77-4599-9e6e-ad7572796f58" name="Default Changelist" comment="">
+    <list default="true" id="f769293b-9d77-4599-9e6e-ad7572796f58" name="Default Changelist" comment="Added networked search">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FilePolicyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilePolicyGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,47 +29,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DocumentProducer" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -103,12 +62,18 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="E:/Java/Android/Sdk" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="  " />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -119,19 +84,7 @@
       <recent name="D:\GoogleDrive\Thesis\ThesisCode\src\main\resources" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Gradle.ThesisCode [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="KeyGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="KeyGenerator" />
       <module name="DocumentProducer.main" />
@@ -238,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574507033585</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added networked search">
+      <created>1579748654779</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579748654783</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -273,7 +233,66 @@
     <MESSAGE value="- Added user search&#10;- Merge branch 'master' of https://github.com/mouriisrat/thesis-code&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/FilePolicyGenerator.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/tree/Node.java&#10;#&#9;src/main/java/tree/Tree.java&#10;#&#9;src/main/resources/dictionary.txt" />
     <MESSAGE value="Added multi keyword search using tf.idf" />
     <MESSAGE value="auto generated public key" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto generated public key" />
+    <MESSAGE value="Added networked search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added networked search" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="389" y="11" key="CommitChangelistDialog2" timestamp="1588963732877">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="389" y="11" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1588963732877" />
+    <state width="482" height="466" key="DebuggerActiveHint" timestamp="1588963492088">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="482" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1588963492088" />
+    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1588669616876">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588669616876" />
+    <state width="1077" height="238" key="GridCell.Tab.0.bottom" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.0.center" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.0.left" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.0.right" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.1.bottom" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.1.center" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.1.left" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state width="1077" height="238" key="GridCell.Tab.1.right" timestamp="1588963511013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1077" height="238" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588963511013" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1588919577959">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588919577959" />
+    <state x="390" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1581415810638">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="192" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581415810638" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1588884636424">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1588884636424" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -282,6 +301,11 @@
           <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.n1analytics/javallier_2.10/0.6.0/3da937106ed7eb1f0229f37e7ce6afb6f9338eb9/javallier_2.10-0.6.0-sources.jar!/com/n1analytics/paillier/cli/SerialisationUtil.java</url>
           <line>44</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/User.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
